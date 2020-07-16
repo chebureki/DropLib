@@ -2,6 +2,8 @@
 ## What is it
 DropLib is a simple, efficient and beautiful way to quickly build a GUI for your scripts
 
+[Screenshot]: screenshot.png "Screenshot"
+
 ## Documentation
 ### Initialize
 It is recommended that you keep a local copy of the script, so updates don't break anything and load times are fast
