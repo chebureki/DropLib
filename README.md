@@ -1,9 +1,16 @@
 # DropLib v0.3
-## What is it
 DropLib is a simple, efficient and beautiful way to quickly build a GUI for your scripts.
 It features: All the UI elements you would ever want, super-easy to use yet versatile API, jawdropping sexy defaults, nice and clean animations, In-Game gui updates!!, and much more!
 
 ![Screenshot](screenshot.png "Screenshot")
+
+## How to get started
+1. Read the [Examplecode](#examplecode)
+2. Read the [Documentation](#documentation)
+3. See what you can [configure](#configuration)
+4. ...
+5. That should be enough
+
 ## Documentation
 ### Initialize
 It is recommended that you keep a local copy of the script, so updates don't break anything and load times are fast
@@ -12,7 +19,7 @@ local gui = loadstring(game:HttpGet("https://gitlab.com/0x45.xyz/droplib/-/raw/m
 ```
 |CONFIG|SCREENGUI_PARENT|
 |--|--|
-|(Table)[User-config](#Config) which overwrites the default config, default: empty table|(Instance)parent for the screengui, default: game.Player.LocalPlayer.PlayerGui|
+|(Table)[User-config](#Configuration) which overwrites the default config, default: empty table|(Instance)parent for the screengui, default: game.Player.LocalPlayer.PlayerGui|
 
 ### Gui Methods
 ```lua
@@ -141,7 +148,7 @@ local textbox = catOrSec:CreateTextBox(TITLE, CALLBACK, ACCEPTFORMAT, DYNAMIC, I
 
 The AcceptFormat for a number only textbox would be: ```^d+$```
 
-## Config
+## Configuration
 Default configuration (Under Development, alot is gonna change in the near future. Expect to redo your config), change anything to your liking:
 ```lua
 Config.PrimaryColor = Color3.fromRGB(27, 38, 59)
@@ -158,3 +165,21 @@ Config.AnimationEasingStyle = Enum.EasingStyle.Quint
 Config.DefaultEntryHeight = 35
 ```
 The configurations are held in gui.Config. When changes are made, make sure to call gui:UpdateGui()
+
+## Examplecode
+```lua
+local config = {
+    ["HeaderWidth"] = 250,
+    ["AccentColor"] = Color3.new(0.6,0,0)
+}
+local gui = loadstring(game:HttpGet("https://gitlab.com/0x45.xyz/droplib/-/raw/master/drop-minified.lua"))()(config)
+
+gui:CreateCategory("Clean Up"):CreateButton("Click",function() gui:CleanUp() end)
+local lpg = gui:CreateCategory("Local Player")
+
+lpg:CreateSlider("Walk Speed", function(ws) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws end,0,100,nil,true,game.Players.LocalPlayer.Character.Humanoid.WalkSpeed)
+lpg:CreateSlider("Jump Power", function(jp) game.Players.LocalPlayer.Character.Humanoid.JumpPower = jp end,0,200,nil,true,game.Players.LocalPlayer.Character.Humanoid.JumpPower)
+lpg:CreateButton("Force Field", function() Instance.new("ForceField",game.Players.LocalPlayer.Character) end)
+```
+Super simple script which can set the walkspeed, jumppower and create a forcefield. Furthermore, it has a button to delete everything.
+In addition to that, it overwrites the headerwidth and the accentcolor
