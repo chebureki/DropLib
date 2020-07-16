@@ -907,7 +907,7 @@ function Gui.Show(self)
 	Gui.ScreenGui.Enabled = true
 end
 
-local function Init(userConf)
+local function Init(userConf,customParent)
 	Gui.ScreenGui = Instance.new("ScreenGui")
 	Gui.ScreenGui.ResetOnSpawn = false
 	Gui.ScreenGui.IgnoreGuiInset = true
@@ -916,7 +916,7 @@ local function Init(userConf)
 	rootFrame.Size = UDim2.new(1,0,1,0)
 	rootFrame.BackgroundTransparency = 1
 	
-	Gui.ScreenGui.Parent = game.Players.LocalPlayer.PlayerGui
+	Gui.ScreenGui.Parent = customParent or game.Players.LocalPlayer.PlayerGui
 	rootFrame.Parent = Gui.ScreenGui
 	Gui.Categories = BaseObject(TypeEnum.Root,nil,nil,rootFrame)
 	
