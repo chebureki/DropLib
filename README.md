@@ -12,7 +12,7 @@ local gui = loadstring(game:HttpGet("https://gitlab.com/0x45.xyz/droplib/-/raw/m
 ```
 |CONFIG|SCREENGUI_PARENT|
 |--|--|
-|(Table)[User-config](#Config) which overwrites the default config, default: empty table|(Instnace)parent for the screengui, default: game.Player.LocalPlayer.PlayerGui|
+|(Table)[User-config](#Config) which overwrites the default config, default: empty table|(Instance)parent for the screengui, default: game.Player.LocalPlayer.PlayerGui|
 
 ### Gui Methods
 ```lua
