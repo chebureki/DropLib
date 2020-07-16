@@ -1,9 +1,9 @@
-# DropLib
+# DropLib v0.3
 ## What is it
-DropLib is a simple, efficient and beautiful way to quickly build a GUI for your scripts
+DropLib is a simple, efficient and beautiful way to quickly build a GUI for your scripts.
+It features: All the UI elements you would ever want, super-easy to use yet versatile API, jawdropping sexy defaults, nice and clean animations, In-Game gui updates!!, and much more!
 
-[Screenshot]: screenshot.png "Screenshot"
-
+![Screenshot](screenshot.png "Screenshot")
 ## Documentation
 ### Initialize
 It is recommended that you keep a local copy of the script, so updates don't break anything and load times are fast
@@ -62,10 +62,11 @@ catOrSec:Expand()
 ### Elements
 All of these can be used with a category, (sub-)section
 
-#### Get and Set
-You don't always have to specify a callback function, you can get the value with:
+#### Get and Set easily
+You don't have to specify a callback function if you don't want to, you can get the value of the element with:
 ```lua
 element.Value
+--element could be a switch, colorpicker, etc.
 ```
 You can also set the value with
 ```lua
@@ -82,7 +83,7 @@ local button = catOrSec:CreateButton(TITLE, CALLBACK)
 
 #### Slider
 ```lua
-local slider = catOrSec:CreateSlider(TITLE, CALLBACK,MIN,MAX,STEP,DYNAMIC,INITIAL)
+local slider = catOrSec:CreateSlider(TITLE, CALLBACK, MIN, MAX, STEP, DYNAMIC, INITIAL)
 ```
 |TITLE|CALLBACK|MIN|MAX|STEP|DYNAMIC|INITIAL|
 |--|--|-|--|--|--|--|
@@ -90,7 +91,7 @@ local slider = catOrSec:CreateSlider(TITLE, CALLBACK,MIN,MAX,STEP,DYNAMIC,INITIA
 
 #### Switch
 ```lua
-local switch = catOrSec:CreateSwitch(TITLE, CALLBACK,INITIAL)
+local switch = catOrSec:CreateSwitch(TITLE, CALLBACK, INITIAL)
 ```
 |TITLE|CALLBACK|INITIAL|
 |--|--|--|
@@ -98,7 +99,7 @@ local switch = catOrSec:CreateSwitch(TITLE, CALLBACK,INITIAL)
 
 #### Color Picker
 ```lua
-local colorPicker = catOrSec:CreateColorPicker(TITLE, CALLBACK,DYNAMIC,INITIAL)
+local colorPicker = catOrSec:CreateColorPicker(TITLE, CALLBACK, DYNAMIC, INITIAL)
 ```
 |TITLE|CALLBACK|DYNAMIC|INITIAL|
 |--|--|--|--|
@@ -106,19 +107,13 @@ local colorPicker = catOrSec:CreateColorPicker(TITLE, CALLBACK,DYNAMIC,INITIAL)
 
 #### Selector / Dropdown Menu
 ```lua
-local selector = catOrSec:CreateSelector(TITLE, CALLBACK,GETCALL,INITIAL)
+local selector = catOrSec:CreateSelector(TITLE, CALLBACK, GETCALL, INITIAL)
 ```
 |TITLE|CALLBACK|GETCALL|INITIAL|
 |--|--|--|--|
 |(String)Title|(Function)Function called on toggle|(Function)Function that returns a Table from which a element is picked |(Any)Initial , default: nil / empty|
 
-#### Selector / Dropdown Menu
-```lua
-local selector = catOrSec:CreateSelector(TITLE,CALLBACK,GETCALL,INITIAL)
-```
-|TITLE|CALLBACK|GETCALL|INITIAL|
-|--|--|--|--|
-|(String)Title|(Function)Function called on toggle|(Function)Function that returns a Table from which a element is picked |(Any)Initial , default: nil / empty|
+E.g. if you want to list all players, your getcall would be ``` function() return game.Players:GetPlayers() end ```
 
 #### Text Label
 ```lua
@@ -130,7 +125,7 @@ local label = catOrSec:CreateLabel(TITLE, HEIGHT)
 
 #### Key Detector
 ```lua
-local detector = catOrSec:CreateKeyDetector(TITLE,CALLBACK,INITIAL)
+local detector = catOrSec:CreateKeyDetector(TITLE, CALLBACK, INITIAL)
 ```
 |TITLE|CALLBACK|INITIAL|
 |--|--|--|
@@ -138,11 +133,13 @@ local detector = catOrSec:CreateKeyDetector(TITLE,CALLBACK,INITIAL)
 
 #### Textbox
 ```lua
-local textbox = catOrSec:CreateTextBox(TITLE,CALLBACK,ACCEPTFORMAT,DYNAMIC,INITIAL)
+local textbox = catOrSec:CreateTextBox(TITLE, CALLBACK, ACCEPTFORMAT, DYNAMIC, INITIAL)
 ```
 |TITLE|CALLBACK|ACCEPTFORMAT|DYNAMIC|INITIAL|
 |--|--|--|--|--|
 |(String)Title|(Function)Function called on change|(Pattern)Text has to match this pattern, default: ".+"/Accepts everything|(Boolean)Whether callback is called while user is typing|(String)Initial, default: ""/Empty text|
+
+The AcceptFormat for a number only textbox would be: ```^d+$```
 
 ## Config
 Default configuration (Under Development, alot is gonna change in the near future. Expect to redo your config), change anything to your liking:
@@ -160,3 +157,4 @@ Config.AnimationDuration = 0.4
 Config.AnimationEasingStyle = Enum.EasingStyle.Quint
 Config.DefaultEntryHeight = 35
 ```
+The configurations are held in gui.Config. When changes are made, make sure to call gui:UpdateGui()
