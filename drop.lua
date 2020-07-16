@@ -600,6 +600,15 @@ local function BaseContainer(title,parent,children)
 			button:Collapse()
 			ReorderGui(self)
 		end
+		
+		function sec.HideCollapseButton(self)
+			button.GuiObject.Visible = false
+		end
+	
+		function sec.ShowCollapseButton(self)
+			button.GuiObject.Visible = true
+		end
+		
 		header:AddChild(button)
 		ReorderGui(sec)
 		return sec
@@ -639,6 +648,7 @@ local function BaseContainer(title,parent,children)
 	end
 	
 	function con.CreateButton(self,title,callback)
+		callback = callback or NullFunc
 		local entry = self:CreateDefaultEntry()
 		local button = Button(UDim2.new(1,-10,1,-10),UDim2.new(0,5,0,5),title,callback)
 		
@@ -651,6 +661,7 @@ local function BaseContainer(title,parent,children)
 	end
 	
 	function con.CreateSwitch(self,title,callback,initialValue)
+		callback = callback or NullFunc
 		local entry = self:CreateDefaultEntry()
 		entry.Value = initialValue or false
 		local switch = Switch(UDim2.new(1,-10,1,-10),UDim2.new(0,5,0,5),title,
@@ -797,13 +808,13 @@ local function BaseContainer(title,parent,children)
 		function entry.SetValue(self,val)
 			dc:SetValue(val)	
 		end
-		
+		entry:SetValue(entry.Value)
 		entry:AddChild(dc)
 		entry:UpdateGui()
 		return entry	
 	end
 	
-	function con.CreateTextBox(self,title,callback,acceptFormat,dynamic,initial)
+		function con.CreateTextBox(self,title,callback,acceptFormat,dynamic,initial)
 		local entry = self:CreateDefaultEntry()
 		local box = TextBox(UDim2.new(1,-10,1,-10),UDim2.new(0,5,0,5),title,callback,acceptFormat,dynamic,initial)
 		entry:AddChild(box)	
