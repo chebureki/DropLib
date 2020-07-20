@@ -4,10 +4,16 @@ local BaseContainer = require(script.Parent.BaseContainer)
 local Section = require(script.Parent.Section)
 local Category = require(script.Parent.Category)
 
---automatically require ui elements
-for _,ui in pairs(script.Parent.UIElements:GetChildren())do
-    require(ui)
-end
+local BaseEntry = require(script.Parent.UIElements.BaseEntry)
+local BaseUiElement = require(script.Parent.UIElements.BaseUiElement)
+local Button = require(script.Parent.UIElements.Button)
+local ColorPicker = require(script.Parent.UIElements.ColorPicker)
+local Selector = require(script.Parent.UIElements.Selector)
+local Slider = require(script.Parent.UIElements.Slider)
+local Switch = require(script.Parent.UIElements.Switch)
+local TextBox = require(script.Parent.UIElements.TextBox)
+local TextLabel = require(script.Parent.UIElements.TextLabel)
+
 
 local Gui = {}
 Gui.__index = Gui
@@ -52,6 +58,6 @@ function Gui:CreateCategory(name,position)
     return cat
 end
 
-local tmp = Gui:New()
-tmp:UpdateGui()
-return tmp
+local droplib = Gui:New()
+droplib:RecursiveUpdateGui()
+return droplib
