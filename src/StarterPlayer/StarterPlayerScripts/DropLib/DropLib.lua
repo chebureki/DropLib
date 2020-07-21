@@ -68,7 +68,7 @@ function Gui:Init(userConfig,screenGuiParent)
     local droplib = Gui:New(screenGuiParent)
     droplib:LoadConfig(userConfig or {})
     droplib:RecursiveUpdateGui()
-    return Gui
+    return droplib
 end
 
 return Gui

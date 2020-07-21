@@ -1,4 +1,4 @@
-local Gui = require(script.Parent.DropLib)
+local Gui = require(script.Parent.DropLib):Init()
 local cat = Gui:CreateCategory("Hello"):CreateSection("sex")
 cat:CreateButton("lel",print)
 local slider = cat:CreateSlider("asdf",print,0,1)
