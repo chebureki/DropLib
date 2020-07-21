@@ -64,10 +64,11 @@ function Gui:LoadConfig(userConfig)
     end
 end
 
-function Gui:Init(userConfig,screenGuiParnent)
+function Gui:Init(userConfig,screenGuiParent)
     local droplib = Gui:New(screenGuiParent)
-    droplib:LoadConfig(userConfig)
+    droplib:LoadConfig(userConfig or {})
     droplib:RecursiveUpdateGui()
+    return Gui
 end
 
-return droplib
+return Gui
