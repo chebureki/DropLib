@@ -15,7 +15,7 @@ It features: All the UI elements you would ever want, super-easy to use yet vers
 ### Initialize
 It is recommended that you keep a local copy of the script, so updates don't break anything and load times are fast
 ```lua
-local gui = loadstring(game:HttpGet("https://gitlab.com/0x45.xyz/droplib/-/raw/master/drop-minified.lua"))()(CONFIG,SCREENGUI_PARENT)
+local gui = loadstring(game:HttpGet("https://gitlab.com/0x45.xyz/droplib/-/raw/master/drop-minified.lua"))():Init(CONFIG,SCREENGUI_PARENT)
 ```
 |CONFIG|SCREENGUI_PARENT|
 |--|--|
@@ -28,7 +28,7 @@ gui:CleanUp()
 Removes everything
 
 ```lua
-gui:UpdateGui()
+gui:RecursiveUpdateGui()
 ```
 Updates the gui based on the values in gui.Config
 

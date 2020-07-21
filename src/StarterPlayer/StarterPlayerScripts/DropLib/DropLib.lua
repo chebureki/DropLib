@@ -19,9 +19,9 @@ local Gui = {}
 Gui.__index = Gui
 setmetatable(Gui,BaseObject)
 
-function Gui:New()
+function Gui:New(screenGuiParent)
     local self = setmetatable(BaseObject:New(TypeEnum.Root),Gui)
-	self.ScreenGui = Instance.new("ScreenGui",game.Players.LocalPlayer.PlayerGui)
+	self.ScreenGui = Instance.new("ScreenGui",screenGuiParent or game.Players.LocalPlayer.PlayerGui)
     self.GuiObject = Instance.new("Frame",self.ScreenGui)
     return self
 end
@@ -58,6 +58,16 @@ function Gui:CreateCategory(name,position)
     return cat
 end
 
-local droplib = Gui:New()
-droplib:RecursiveUpdateGui()
+function Gui:LoadConfig(userConfig)
+    for i,v in pairs(userConfig) do
+        Config[i] = v
+    end
+end
+
+function Gui:Init(userConfig,screenGuiParnent)
+    local droplib = Gui:New(screenGuiParent)
+    droplib:LoadConfig(userConfig)
+    droplib:RecursiveUpdateGui()
+end
+
 return droplib
