@@ -15,7 +15,7 @@
 				<string name="ScriptGuid">{E8E1FE36-2D4C-4102-88BA-F92F9ECFAF65}</string>
 				<ProtectedString name="Source"><![CDATA[local Compile = {}
 
-function Compile:RecursiveCompile(relScript, alreadyIncluded)
+function Compile:RecursiveCompile(relScript, alreadyIncluded,isRoot)
 	print("Including:",relScript.Name)
 	table.insert(alreadyIncluded,relScript)
 	local body = relScript.Source
@@ -30,7 +30,7 @@ function Compile:RecursiveCompile(relScript, alreadyIncluded)
 		end
 	end
 	
-	if relScript:IsA("ModuleScript") then
+	if relScript:IsA("ModuleScript") and not isRoot then
 		body = Compile:RemoveLastReturn(body)
 	end
 	return body
@@ -77,7 +77,7 @@ local button = toolbar:CreateButton("Compile From Selected Script","^^","rbxasse
 
 button.Click:Connect(function()
 	local selected = game.Selection:Get()[1]
-	local source = Compile:RecursiveCompile(selected,{})
+	local source = Compile:RecursiveCompile(selected,{},true)
 	local compiled = Instance.new("LocalScript",workspace)
 	compiled.Source = source
 	compiled.Name = selected.Name.."_compiled"
