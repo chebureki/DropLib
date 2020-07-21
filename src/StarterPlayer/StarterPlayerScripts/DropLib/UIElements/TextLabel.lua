@@ -9,7 +9,6 @@ setmetatable(TextLabel,BaseUiElement)
 
 function TextLabel:New(size,pos,title)
     local self = setmetatable(BaseUiElement:New(size,pos,title), TextLabel)
-    self.Callback = callback
     self.GuiObject = Instance.new("TextLabel")
     return self
 end
