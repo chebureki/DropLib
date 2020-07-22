@@ -36,7 +36,7 @@ Updates the gui based on the values in gui.Config
 ```lua
 local category = gui:CreateCategory(TITLE, POSITION)
 local section = category:CreateSection(TITLE)
-local subsection = category:CreateSection(TITLE)
+local subsection = section:CreateSection(TITLE)
 ```
 You can have as many nested sections as you want
 
