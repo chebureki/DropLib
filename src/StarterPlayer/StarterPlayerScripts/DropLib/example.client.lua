@@ -12,3 +12,6 @@ cat:CreateTextLabel("yaa yeet")
 local selector = cat:CreateSelector("yeet",print,function()
     return workspace:GetDescendants()
 end,"yeet")
+
+local det = cat:CreateKeyDetector("asdf",print,Enum.KeyCode.A)
+det:SetValue(Enum.KeyCode.B)

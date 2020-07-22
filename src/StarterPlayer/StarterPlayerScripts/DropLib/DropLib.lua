@@ -4,6 +4,7 @@ local BaseContainer = require(script.Parent.BaseContainer)
 local Section = require(script.Parent.Section)
 local Category = require(script.Parent.Category)
 
+--All required, comment them out if you dont want them!
 local BaseEntry = require(script.Parent.UIElements.BaseEntry)
 local BaseUiElement = require(script.Parent.UIElements.BaseUiElement)
 local Button = require(script.Parent.UIElements.Button)
@@ -13,7 +14,7 @@ local Slider = require(script.Parent.UIElements.Slider)
 local Switch = require(script.Parent.UIElements.Switch)
 local TextBox = require(script.Parent.UIElements.TextBox)
 local TextLabel = require(script.Parent.UIElements.TextLabel)
-
+local KeyDetector = require(script.Parent.UIElements.KeyDetector)
 
 local Gui = {}
 Gui.__index = Gui
