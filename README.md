@@ -125,11 +125,11 @@ E.g. if you want to list all players, your getcall would be ``` function() retur
 
 #### Text Label
 ```lua
-local label = catOrSec:CreateLabel(TITLE, HEIGHT)
+local label = catOrSec:CreateLabel(TITLE)
 ```
-|TITLE|HEIGHT|
-|--|--|
-|(String)Title|(INTEGER)Height in pixels, default: Config.DefaultEntryHeight|
+|TITLE|
+|--|
+|(String)Title|
 
 #### Key Detector
 ```lua
