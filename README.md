@@ -1,6 +1,7 @@
 # DropLib v0.3
 DropLib is a simple, efficient and beautiful way to quickly build a GUI for your scripts.
 It features: All the UI elements you would ever want, super-easy to use yet versatile API, jawdropping sexy defaults, nice and clean animations, In-Game gui updates!!, and much more!
+If you have any questions, just dm me on discord: cheb#5214
 
 ![Screenshot](screenshot.png "Screenshot")
 
