@@ -172,7 +172,7 @@ local config = {
     ["HeaderWidth"] = 250,
     ["AccentColor"] = Color3.new(0.6,0,0)
 }
-local gui = loadstring(game:HttpGet("https://gitlab.com/0x45.xyz/droplib/-/raw/master/drop-minified.lua"))()(config)
+local gui = loadstring(game:HttpGet("https://gitlab.com/0x45.xyz/droplib/-/raw/master/drop-minified.lua"))():Init(config)
 
 gui:CreateCategory("Clean Up"):CreateButton("Click",function() gui:CleanUp() end)
 local lpg = gui:CreateCategory("Local Player")
