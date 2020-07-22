@@ -187,4 +187,4 @@ In addition to that, it overwrites the headerwidth and the accentcolor
 
 ## Building
 Although possible, the build system is rather hackish as of right now, so just use the minified version for all your exploiting needs.
-(Build is done through the plugin Compile.rbxmx, where DropLib.lua is selected and the button in the plugin menu is clicked. A merged and minified version should be in workspace)
+(Build is done through the plugin Compile.rbxmx and Rojo(ask me on discord on how), where DropLib.lua is selected and the button in the plugin menu is clicked. A merged and minified version should be in workspace)
