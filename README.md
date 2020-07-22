@@ -72,7 +72,7 @@ All of these can be used with a category, (sub-)section
 #### Get and Set easily
 You don't have to specify a callback function if you don't want to, you can get the value of the element with:
 ```lua
-element.Value
+element:GetValue()
 --element could be a switch, colorpicker, etc.
 ```
 You can also set the value with
