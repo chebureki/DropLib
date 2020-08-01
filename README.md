@@ -128,7 +128,7 @@ E.g. if you want to list all players, your getcall would be ``` function() retur
 
 #### Text Label
 ```lua
-local label = catOrSec:CreateLabel(TITLE)
+local label = catOrSec:CreateTextLabel(TITLE)
 ```
 |TITLE|
 |--|
